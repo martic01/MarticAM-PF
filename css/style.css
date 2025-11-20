@@ -1,0 +1,336 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+:root {
+    --primarycl: #FFBF00;
+    --secondarycl: rgb(255, 255, 255);
+    --thirdcl: #141414;
+    --primaryclA: #f3c04071;
+    --secondaryclA: #ffffff80;
+    --thirdclA: #1414147a;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.topbg {
+
+    width: 100vw;
+    height: 94vh;
+
+}
+
+.nav {
+    min-width: 800px;
+    width: 100%;
+    height: 10vh;
+    background-color: rgba(0, 0, 0, 0.575);
+    z-index: 999;
+    position: fixed;
+    top: 0;
+}
+
+
+
+.cont {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-top: -20px;
+}
+
+
+
+.inboxtp {
+    min-width: 500px;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-color: var(--secondarycl);
+    border-right: 10px double var(--primarycl);
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-image: url(../img/test2\ \(3\).jpg);
+    background-size: contain;
+    background-position: center;
+}
+
+.txtsp {
+    position: absolute;
+    min-width: 300px;
+    width: 70%;
+    height: 100%;
+    right: 16%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2%;
+    padding: 7px;
+    color: var(--secondarycl);
+    text-shadow: 0 0 12px #00000052;
+}
+
+.txtsp div {
+    background-color: #141414;
+    width: 90%;
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.txtsp div .left {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: flex-end;
+    border-right: 1px solid var(--secondarycl);
+
+}
+
+.txtsp .left .inl {
+    height: 84%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.txtsp .left .inl .inlsplit {
+    height: 100%;
+    width: 34%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 14px;
+    font-size: 9px;
+    padding-top: 10px;
+    color: rgb(170, 170, 170);
+}
+
+.txtsp .left .inl .inlsplit i:hover {
+    cursor: pointer;
+    color: var(--primarycl);
+}
+
+#wildspl {
+    width: 60%;
+    padding-top: 20px;
+    border-left: 1px solid blue;
+    cursor: row-resize;
+    font-size: 6px;
+    padding: 1px 2px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+#wildspl p{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 3px;
+    padding: 2px;
+    transition: .2s;
+    cursor: pointer;
+}
+span#grn{
+    color: #26da26;
+}
+span#yel{
+    color: #fab144;
+}
+
+#wildspl .fa-html5{
+    color: #FFBF00;
+    font-size: 3px;
+}
+
+#wildspl p:hover{
+    background-color: rgba(128, 128, 128, 0.26);
+}
+.txtsp div .right {
+    height: 100%;
+    width: 10%;
+    border-left: 1px solid var(--secondarycl);
+}
+
+.txtsp div .hthd {
+    height: 15%;
+    width: 100%;
+    position: absolute;
+    background-color: transparent;
+    border-bottom: 1px solid var(--secondarycl);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
+    gap: 5px;
+}
+
+.txtsp .hthd .bthd {
+    height: 100%;
+    width: 43%;
+    border: 1px solid var(--secondaryclA);
+    border-radius: 2px;
+    margin-left: 3rem;
+    font-size: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: var(--secondarycl);
+}
+
+
+.txtsp .hthd .othhd {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--secondarycl);
+    margin-left: 1.4rem;
+    font-size: 11px;
+}
+
+.txtsp .hthd .othhd i {
+    transition: .2s;
+    cursor: pointer;
+    padding: 3px;
+}
+
+.txtsp .hthd .othhd i:hover {
+    background-color: #80808079;
+    color: var(--primarycl);
+}
+
+.txtsp .hthd .othhd .fa-xmark:hover {
+    background-color: rgb(255, 1, 1);
+    color: white;
+}
+
+.txtsp div .bodyht {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    align-items: flex-end;
+}
+
+
+.txtsp div .bodyht .inbdy {
+    padding: 14px;
+    height: 84%;
+    width: 100%;
+    background-color: #0f0f0f;
+    overflow-y:scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.inbdy p{
+    color: gray;
+    font-size: 0.77rem;
+}
+
+.inbdy .pb{
+    color: rgb(28, 28, 230);
+}
+
+.inbdy .atr{
+    color: #20ecf3;
+}
+
+.inbdy  .wh{
+    color: white;
+}
+
+.inbdy .id{
+    margin-left: 6%;
+}
+.inbdy .id2{
+    padding-left: 13px;
+    border-left: 1px solid gray;
+}
+
+.inbdy::-webkit-scrollbar {
+    width: 8px;
+    background-color: rgb(48, 47, 47);
+}
+.inbdy::-webkit-scrollbar-thumb {
+    background-color: var(--thirdclA);
+    border-radius: 10px;
+}
+/* ---- */
+
+
+.txtsp h1 span {
+    animation: 1s blink linear infinite;
+    opacity: 0;
+    font-size: 5rem;
+}
+
+@keyframes blink {
+    to {
+        opacity: 1;
+    }
+}
+
+.gold {
+    color: var(--primarycl);
+    font-family: monospace
+}
+
+.txtsp h1 {
+    font-size: 5vmin;
+    letter-spacing: 7px;
+}
+
+.txtsp h2 {
+    font-size: 30px;
+    margin-top: 25%;
+}
+
+.txtsp p {
+    letter-spacing: 2px;
+
+}
+
+
+/* % 5 6 u U */
+
+
+.bgtp {
+    position: absolute;
+    min-width: 400px;
+    width: 70%;
+    height: 37%;
+    transform: translateX(79%);
+    background-color: var(--thirdcl);
+    border-bottom: 10px double var(--primarycl);
+    box-shadow: var(--primaryclA) 0px 20px 10px -7px, var(--thirdclA) 0px 60px 40px -7px;
+    /* border-radius: 0 0 20% 20%; */
+}
+
+.bigin {
+    height: 440px;
+    width: 100%;
+    transform: translateY(-49%);
+    /* box-shadow: var(--thirdclA) 0px 70px 40px -7px; */
+}
+
+
+/* % 5 6 u U */

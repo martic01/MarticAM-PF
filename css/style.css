@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+    list-style: none;
 }
 
 :root {
@@ -19,23 +20,81 @@ body {
 }
 
 .topbg {
-
     width: 100vw;
     height: 94vh;
-
 }
 
 .nav {
     min-width: 800px;
     width: 100%;
-    height: 10vh;
-    background-color: rgba(0, 0, 0, 0.575);
+    height: 13vh;
+    background: var(--thirdclA);
+    backdrop-filter: blur(20px);
     z-index: 999;
     position: fixed;
     top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px 20px 0;
+    box-shadow: 0 0 20px var(--thirdclA);
 }
 
+.nav .logo {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    color: var(--secondarycl);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
 
+.nav .logo .img {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border-top: 7px solid var(--primarycl);
+    border-bottom: 7px dashed var(--secondarycl);
+    box-shadow: 0 0 20px var(--primaryclA);
+    background-color: var(--primarycl);
+}
+
+.nav .logo .img img {
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+}
+
+.nav ul {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.nav ul li a{
+    transition: .3s;
+    color: var(--primarycl);
+    border-bottom: 2px solid var(--primarycl);
+    font-weight: 700;
+    padding: 10px;
+    background-color: #00000052;
+    text-decoration: none;
+}
+
+.nav ul li a:hover {
+    background-color: var(--primaryclA);
+    box-shadow: 0 0 10px var(--primaryclA);
+    border-radius: 10px;
+    text-shadow: 0 0 10px black;
+}
 
 .cont {
     width: 100%;
@@ -44,24 +103,64 @@ body {
     justify-content: flex-start;
     align-items: flex-end;
     margin-top: -20px;
+    background: linear-gradient(140deg,
+            #f3f8fa 0%,
+            #dcecf7 40%,
+            color-mix(in srgb, #bbe2fa 50%, #80c1ec 50%) 50%,
+            #011624f1 60%,
+            #000b13 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease-in-out infinite;
 }
 
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
 
 
 .inboxtp {
     min-width: 500px;
     width: 60%;
     height: 100%;
+    border-right: 10px double var(--primarycl);
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-image: url(../img/check\ \(1\).jpg);
+    background-size: contain;
+
+    animation: 20s scr linear infinite;
+}
+
+.inboxtp .dim {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    background-color: var(--secondarycl);
-    border-right: 10px double var(--primarycl);
     position: relative;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    background-image: url(../img/test2\ \(3\).jpg);
-    background-size: contain;
-    background-position: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.514);
+}
+
+@keyframes scr {
+    0% {
+        background-position-y: top;
+    }
+
+    50% {
+        background-position-y: bottom;
+    }
+
+    100% {
+        background-position-y: top;
+    }
 }
 
 .txtsp {
@@ -78,6 +177,7 @@ body {
     color: var(--secondarycl);
     text-shadow: 0 0 12px #00000052;
 }
+
 
 .txtsp div {
     background-color: #141414;
@@ -136,7 +236,8 @@ body {
     justify-content: flex-start;
     gap: 10px;
 }
-#wildspl p{
+
+#wildspl p {
     display: flex;
     width: 100%;
     justify-content: flex-start;
@@ -145,21 +246,24 @@ body {
     transition: .2s;
     cursor: pointer;
 }
-span#grn{
+
+span#grn {
     color: #26da26;
 }
-span#yel{
+
+span#yel {
     color: #fab144;
 }
 
-#wildspl .fa-html5{
+#wildspl .fa-html5 {
     color: #FFBF00;
     font-size: 3px;
 }
 
-#wildspl p:hover{
+#wildspl p:hover {
     background-color: rgba(128, 128, 128, 0.26);
 }
+
 .txtsp div .right {
     height: 100%;
     width: 10%;
@@ -235,33 +339,34 @@ span#yel{
     height: 84%;
     width: 100%;
     background-color: #0f0f0f;
-    overflow-y:scroll;
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
-.inbdy p{
+.inbdy p {
     color: gray;
     font-size: 0.77rem;
 }
 
-.inbdy .pb{
+.inbdy .pb {
     color: rgb(28, 28, 230);
 }
 
-.inbdy .atr{
+.inbdy .atr {
     color: #20ecf3;
 }
 
-.inbdy  .wh{
+.inbdy .wh {
     color: white;
 }
 
-.inbdy .id{
+.inbdy .id {
     margin-left: 6%;
 }
-.inbdy .id2{
+
+.inbdy .id2 {
     padding-left: 13px;
     border-left: 1px solid gray;
 }
@@ -270,10 +375,12 @@ span#yel{
     width: 8px;
     background-color: rgb(48, 47, 47);
 }
+
 .inbdy::-webkit-scrollbar-thumb {
     background-color: var(--thirdclA);
     border-radius: 10px;
 }
+
 /* ---- */
 
 
@@ -291,7 +398,8 @@ span#yel{
 
 .gold {
     color: var(--primarycl);
-    font-family: monospace
+    font-family: monospace;
+    text-shadow: 0 0 10px black;
 }
 
 .txtsp h1 {
@@ -301,7 +409,7 @@ span#yel{
 
 .txtsp h2 {
     font-size: 30px;
-    margin-top: 25%;
+    margin-top: 17%;
 }
 
 .txtsp p {
@@ -319,16 +427,17 @@ span#yel{
     width: 70%;
     height: 37%;
     transform: translateX(79%);
-    background-color: var(--thirdcl);
+    background-color: rgba(255, 255, 255, 0.151);
+    border: 8px solid #ffffff2a;
     border-bottom: 10px double var(--primarycl);
     box-shadow: var(--primaryclA) 0px 20px 10px -7px, var(--thirdclA) 0px 60px 40px -7px;
-    /* border-radius: 0 0 20% 20%; */
+
 }
 
 .bigin {
     height: 440px;
     width: 100%;
-    transform: translateY(-49%);
+    transform: translateY(-51%);
     /* box-shadow: var(--thirdclA) 0px 70px 40px -7px; */
 }
 

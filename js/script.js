@@ -179,12 +179,11 @@ function startTypingLoop() {
 
 
 
-
-
 $(document).ready(function () {
     $('.fa-folder').click(function () {
         $('#wildspl').fadeToggle();
     });
 
     startTypingLoop();
+   
 });

@@ -519,6 +519,9 @@ span#yel {
 
 
 @media(max-width:580px) {
+    .topbg{
+        max-height: 400px;
+    }
     .inboxtp {
         width: 100%;
         border-left: 10px double gold;

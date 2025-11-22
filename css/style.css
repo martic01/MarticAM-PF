@@ -168,7 +168,7 @@ body {
 
 .txtsp div {
     background-color: #141414;
-    width: 90%;
+    width: 87%;
     height: 37%;
     display: flex;
     justify-content: center;
@@ -323,7 +323,7 @@ span#yel {
 
 
 .txtsp div .bodyht .inbdy {
-    padding: 4px;
+    padding: 14px;
     height: 87%;
     width: 100%;
     background-color: #0f0f0f;

@@ -40,17 +40,17 @@ body {
     backdrop-filter: blur(20px);
     z-index: 999;
     position: fixed;
-    top: 0;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 3px 20px 0;
+    padding: 3px 10px 0;
     box-shadow: 0 0 20px var(--thirdclA);
 }
 
 .nav .logo {
     height: 100%;
-    width: 40%;
+    width: 20%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -85,6 +85,23 @@ body {
     justify-content: space-between;
     align-items: center;
 
+}
+
+.nav .icondisplay {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2.4rem;
+    padding: 4px 10px;
+    color: var(--primarycl);
+     cursor: pointer;
+}
+
+.nav .icondisplay i:active {
+    transition: .3s;
+   color: var(--secondarycl);
 }
 
 .nav ul li a {
@@ -455,6 +472,7 @@ span#yel {
 } */
 
 .cov {
+    transition: .3s;
     background-color: #080808;
     width: 44%;
     height: 100%;
@@ -468,8 +486,16 @@ span#yel {
     --glow: 0 0 22px rgba(244, 231, 42, 0.685), 0 0 52px rgba(244, 231, 42, 0.548);
     background:
         radial-gradient(circle at center, gold var(--dot), transparent calc(var(--dot) + 0.5%)) 0 0 / var(--cell) var(--cell) repeat;
+    border-bottom: 12px double gold;
 
+}
 
+.cov:hover {
+    --cell: 8px;
+    --dot: 50%;
+    --glow: 0 0 22px rgba(218, 212, 139, 0.685), 0 0 52px rgba(244, 231, 42, 0.548);
+    background:
+        radial-gradient(circle at center, rgba(252, 220, 40, 0.527) var(--dot), transparent calc(var(--dot) + 0.5%)) 0 0 / var(--cell) var(--cell) repeat;
 }
 
 .bgtp {
@@ -480,7 +506,6 @@ span#yel {
     transform: translateX(-22%);
     background-color: rgba(255, 255, 255, 0.151);
     border: 8px solid #ffffff6c;
-    border-bottom: 12px double var(--primarycl);
     box-shadow: var(--primaryclA) 0px 20px 10px -7px, var(--thirdclA) 0px 60px 40px -7px;
 
 }
@@ -488,7 +513,7 @@ span#yel {
 .bigin {
     height: 440px;
     width: 100%;
-    transform: translateY(-51%);
+    transform: translateY(-50%);
     /* box-shadow: var(--thirdclA) 0px 70px 40px -7px; */
 }
 
@@ -501,6 +526,18 @@ span#yel {
 
     .cov {
         display: none;
+    }
+
+    .nav {
+        bottom: 0;
+    }
+
+    .nav .logo h1 {
+        display: none;
+    }
+
+    .nav .iconsdisplay {
+        display: flex;
     }
 
     .nav ul {

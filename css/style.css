@@ -17,7 +17,7 @@
 
 body {
     overflow-x: hidden;
-    width: 100vw;
+
     --cell: 10px;
     --dot: 58%;
     --glow: 0 0 22px rgba(244, 231, 42, 0.685), 0 0 52px rgba(244, 231, 42, 0.548);
@@ -26,26 +26,31 @@ body {
 
 }
 
+.topbg {
+    width: 100vw;
+    height: 94vh;
+    max-height: 640px;
+}
 
 .nav {
     max-height: 90px;
     width: 100%;
-    height: 12vh;
+    height: 11vh;
     background: var(--thirdclA);
     backdrop-filter: blur(20px);
-    z-index: 9999999;
+    z-index: 999;
     position: fixed;
+top: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    top: 0;
-    padding: 7px 10px;
+    padding: 3px 10px 0;
     box-shadow: 0 0 20px var(--thirdclA);
 }
 
 .nav .logo {
-     height: 90%;
-    width: 34%;
+    height: 100%;
+    width: 20%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -58,10 +63,10 @@ body {
 }
 
 .nav .logo .img {
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
-    border: 3px solid var(--primarycl);
+    border: 1px solid var(--primarycl);
     box-shadow: 0 0 20px var(--primaryclA);
     background-color: var(--primarycl);
 }
@@ -73,8 +78,6 @@ body {
 }
 
 .nav ul {
-    min-width: 350px;
-    max-width: 550px;
     height: 100%;
     width: 40%;
     display: flex;
@@ -85,22 +88,19 @@ body {
 
 .nav .iconsdisplay {
     height: 100%;
-    width: 74%;
+    width: 70%;
     justify-content: space-between;
     align-items: center;
-    font-size: 8vmin;
+    font-size: 2.4rem;
     padding: 4px 10px;
     color: var(--primarycl);
     cursor: pointer;
     display: none;
 }
 
-.nav .iconsdisplay i:active {
+.nav .icondisplay i:active {
+    transition: .3s;
     color: var(--secondarycl);
-}
-
-.nav .iconsdisplay i:hover {
-    color: var(--secondarycl) !important;
 }
 
 .nav ul li a {
@@ -120,13 +120,6 @@ body {
     text-shadow: 0 0 10px black;
 }
 
-.topbg {
-    width: 100vw;
-    height: 94vh;
-    max-height: 640px;
-}
-
-
 .cont {
     width: 100%;
     height: 100%;
@@ -139,6 +132,7 @@ body {
 
 
 .inboxtp {
+    min-width: 540px;
     width: 56%;
     height: 100%;
     border-right: 10px double var(--primarycl);
@@ -157,7 +151,8 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.856);
+    background: rgba(0, 0, 0, 0.747);
+    backdrop-filter:blur(10px); ;
 }
 
 @keyframes scr {
@@ -460,6 +455,22 @@ span#yel {
     animation: 10s fade linear infinite;
 }
 
+/* @keyframes fade {
+    0% {
+        opacity: 0.7;
+        
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.7;
+        
+    }
+} */
+
 .cov {
     transition: .3s;
     background-color: #080808;
@@ -488,9 +499,12 @@ span#yel {
 }
 
 .bgtp {
+    position: relative;
     min-width: 320px;
     width: 90%;
     height: 37%;
+    display: flex;
+    align-items: center;
     transform: translateX(-22%);
     background-color: rgba(255, 255, 255, 0.151);
     border: 8px solid #ffffff6c;
@@ -499,37 +513,15 @@ span#yel {
 }
 
 .bigin {
-    height: 440px;
+    height:  210%;
     width: 100%;
-    transform: translateY(-50%);
+    bottom: 0;
+   position: absolute;
+    /* box-shadow: var(--thirdclA) 0px 70px 40px -7px; */
 }
 
-.services {
-    max-height: 400px;
-    width: 95%;
-    height: 500px;
-    margin:30px auto;
-    background-color: var(--secondaryclA);
-    box-shadow:  0 0 20px var(--thirdclA);
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    padding-bottom: 20px;
-}
-
-.serv {
-    width: 90%;
-    height: 80%;
-    background-color: var(--secondarycl);
-    box-shadow: 0 0 15px var(--thirdclA);
-}
-/* % 5 6 u U */
 
 @media(max-width:580px) {
-    body {
-        user-select: none;
-    }
-
     .topbg {
         max-height: 400px;
     }
@@ -545,9 +537,9 @@ span#yel {
     }
 
     .nav {
-        bottom: 0;
         top: unset;
-        background: #000000e0;
+        bottom: 0;
+        background: #0303034f;
         backdrop-filter: blur(20px);
     }
 
@@ -559,17 +551,8 @@ span#yel {
         display: flex;
     }
 
-     .nav .iconsdisplay i {
-       text-shadow: 0 0 10px var(--primarycl);
-    }
-
-
-    .nav .iconsdisplay i:hover {
-        color: unset !important;
-    }
-
-    .nav .iconsdisplay i:active {
-        color: var(--secondarycl) !important;
+    .nav .iconsdisplay i{
+        text-shadow: 0 0 7px rgba(0, 0, 0, 0.233);
     }
 
     .nav ul {

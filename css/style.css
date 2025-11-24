@@ -33,7 +33,7 @@ body {
     height: 12vh;
     background: var(--thirdclA);
     backdrop-filter: blur(20px);
-    z-index: 999;
+    z-index: 9999999;
     position: fixed;
     display: flex;
     align-items: center;
@@ -44,8 +44,8 @@ body {
 }
 
 .nav .logo {
-    height: 100%;
-    width: 20%;
+     height: 90%;
+    width: 34%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -61,8 +61,7 @@ body {
     height: 70px;
     width: 70px;
     border-radius: 50%;
-    border-top: 7px solid var(--primarycl);
-    border-bottom: 7px dashed var(--secondarycl);
+    border: 3px solid var(--primarycl);
     box-shadow: 0 0 20px var(--primaryclA);
     background-color: var(--primarycl);
 }
@@ -74,6 +73,8 @@ body {
 }
 
 .nav ul {
+    min-width: 350px;
+    max-width: 550px;
     height: 100%;
     width: 40%;
     display: flex;
@@ -84,10 +85,10 @@ body {
 
 .nav .iconsdisplay {
     height: 100%;
-    width: 70%;
+    width: 74%;
     justify-content: space-between;
     align-items: center;
-    font-size: 2.4rem;
+    font-size: 8vmin;
     padding: 4px 10px;
     color: var(--primarycl);
     cursor: pointer;
@@ -138,7 +139,6 @@ body {
 
 
 .inboxtp {
-    min-width: 540px;
     width: 56%;
     height: 100%;
     border-right: 10px double var(--primarycl);
@@ -460,22 +460,6 @@ span#yel {
     animation: 10s fade linear infinite;
 }
 
-/* @keyframes fade {
-    0% {
-        opacity: 0.7;
-        
-    }
-
-    50% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 0.7;
-        
-    }
-} */
-
 .cov {
     transition: .3s;
     background-color: #080808;
@@ -504,7 +488,6 @@ span#yel {
 }
 
 .bgtp {
-    /* position: absolute; */
     min-width: 320px;
     width: 90%;
     height: 37%;
@@ -519,9 +502,28 @@ span#yel {
     height: 440px;
     width: 100%;
     transform: translateY(-50%);
-    /* box-shadow: var(--thirdclA) 0px 70px 40px -7px; */
 }
 
+.services {
+    max-height: 400px;
+    width: 95%;
+    height: 500px;
+    margin:30px auto;
+    background-color: var(--secondaryclA);
+    box-shadow:  0 0 20px var(--thirdclA);
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding-bottom: 20px;
+}
+
+.serv {
+    width: 90%;
+    height: 80%;
+    background-color: var(--secondarycl);
+    box-shadow: 0 0 15px var(--thirdclA);
+}
+/* % 5 6 u U */
 
 @media(max-width:580px) {
     body {
@@ -556,6 +558,11 @@ span#yel {
     .nav .iconsdisplay {
         display: flex;
     }
+
+     .nav .iconsdisplay i {
+       text-shadow: 0 0 10px var(--primarycl);
+    }
+
 
     .nav .iconsdisplay i:hover {
         color: unset !important;

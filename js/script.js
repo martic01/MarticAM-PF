@@ -185,5 +185,26 @@ $(document).ready(function () {
     });
 
     startTypingLoop();
-   
+
+    const revealEls = document.querySelectorAll(".scroll-reveal");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // Scroll IN: add visible class
+                    entry.target.classList.add("is-visible");
+                } else {
+                    // Scroll OUT: remove visible class (so it can animate again)
+                    entry.target.classList.remove("is-visible");
+                }
+            });
+        },
+        {
+            threshold: 0.2, // 20% of element visible triggers the animation
+        }
+    );
+
+    revealEls.forEach((el) => observer.observe(el));
+
 });

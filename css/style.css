@@ -897,13 +897,15 @@ span#yel {
 /* % 5 6 u U */
 
 @media((min-width:601px) and (max-width:900px)) {
-.about{
-    width: 97%;
+    .about {
+        width: 97%;
+    }
+
+    .inabt {
+        width: 47%;
+    }
 }
-.inabt{
-    width: 47%;
-}
-}
+
 @media(max-width:600px) {
     .topbg {
         max-height: 380px;

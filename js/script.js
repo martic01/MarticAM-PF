@@ -207,4 +207,23 @@ $(document).ready(function () {
 
     revealEls.forEach((el) => observer.observe(el));
 
+    let isNight = false;
+
+    $('.theme').click(function () {
+        let $this = $(this);
+        isNight = !isNight
+        const [dayicon, nighticon, sun, moon] = [
+            '<i class="bi bi-brightness-high"></i>',
+            '<i class="bi bi-moon-stars"></i>',
+            '<i class="bi bi-brightness-high-fill sun"></i>',
+            '<i class="bi bi-moon-stars-fill moon"></i>'
+        ]
+        let newIcon = isNight ? nighticon : dayicon;
+        let weatherIcon = isNight ? moon : sun;
+        $this.html(newIcon);
+        $('.weather').html(weatherIcon)
+        $('body').toggleClass('night day');
+        $('.weather').toggleClass('skyn skyd');
+    });
+
 });

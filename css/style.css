@@ -12,18 +12,39 @@
 
 :root {
     --primarycl: #ecca07;
-    --secondarycl: rgb(255, 255, 255);
-    --thirdcl: #000000;
     --primaryclA: #f3c04071;
-    --secondaryclA: #ffffff80;
     --drgold: #b49a08;
-    --thirdclA: #0000007a;
-    --bg: #050609;
-    --text: #ffffff;
     --fontdiffer1: "Silkscreen", sans-serif;
     --fontdiffer2: "Faster One", system-ui;
     --fontdiffer3: "Black Ops One", system-ui;
+}
 
+.day {
+    --secondarycl: rgb(255, 255, 255);
+    --darksec: rgb(211, 211, 211);
+    --thirdcl: #020202;
+    --secondaryclA: #ffffff80;
+    --thirdclA: #0000007a;
+    --bg: #050609;
+    --text: #fffefe;
+}
+
+.night {
+    --secondarycl: rgb(29, 28, 28);
+    --darksec: rgb(68, 67, 67);
+    --thirdcl: #ffffff;
+    --secondaryclA: #75747480;
+    --thirdclA: #bdbaba7a;
+    --bg: #e6e7e7;
+    --text: #c2bfbf;
+}
+
+.skyd {
+    background-image: url(../img/weather-day.webp);
+}
+
+.skyn {
+    background-image: url(../img/weather-night.webp);
 }
 
 body {
@@ -32,9 +53,38 @@ body {
     --dot: 58%;
     --glow: 0 0 22px rgba(240, 239, 233, 0.685), 0 0 52px rgba(244, 231, 42, 0.548);
     background:
-        radial-gradient(circle at center, rgb(221, 221, 223) var(--dot), transparent calc(var(--dot) + 0.5%)) 0 0 / var(--cell) var(--cell) repeat;
+        radial-gradient(circle at center, var(--darksec) var(--dot), var(--secondarycl) calc(var(--dot) + 0.5%)) 0 0 / var(--cell) var(--cell) repeat;
 
 }
+
+.theme {
+    width: 54px;
+    height: 54px;
+    background-color: rgba(0, 0, 0, 0.719);
+    backdrop-filter: blur(7px);
+    border-radius: 100%;
+    border: 7px double var(--darksec);
+    box-shadow: 0 0 7px var(--primarycl);
+    position: fixed;
+    bottom: 7vh;
+    z-index: 9999;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--drgold);
+    text-shadow: 0 0 10px var(--drgold);
+    transition: .3s;
+    font-size: 1.3rem;
+}
+
+.theme:hover {
+    text-shadow: 0 0 10px var(--primarycl);
+    color: var(--primarycl);
+    box-shadow: 0 0 20px var(--primarycl);
+    font-size: 1.4rem;
+}
+
 
 .topbg {
     width: 100%;
@@ -65,7 +115,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
-    color: var(--secondarycl);
+    color: var(--text);
     font-size: 10px;
     font-weight: bold;
     letter-spacing: 2px;
@@ -112,12 +162,12 @@ body {
 .nav .icondisplay i {
     transition: .3s;
     text-shadow: 0 0 20px black;
-    color: var(--secondarycl);
+    color: var(--text);
 }
 
 .nav .icondisplay i:active {
     transition: .3s;
-    color: var(--secondarycl);
+    color: var(--text);
 }
 
 .nav ul li a {
@@ -202,7 +252,7 @@ body {
     flex-direction: column;
     justify-content: center;
     gap: 2%;
-    color: var(--secondarycl);
+    color: var(--text);
     text-shadow: 0 0 12px #00000052;
 }
 
@@ -222,7 +272,7 @@ body {
     width: 20%;
     display: flex;
     align-items: flex-end;
-    border-right: 1px solid var(--secondarycl);
+    border-right: 1px solid white;
 
 }
 
@@ -296,7 +346,7 @@ span#yel {
 .txtsp div .right {
     height: 100%;
     width: 3%;
-    border-left: 1px solid var(--secondarycl);
+    border-left: 1px solid white;
 }
 
 .txtsp div .hthd {
@@ -304,7 +354,7 @@ span#yel {
     width: 100%;
     position: absolute;
     background-color: transparent;
-    border-bottom: 1px solid var(--secondarycl);
+    border-bottom: 1px solid white;
     z-index: 99999;
     display: flex;
     justify-content: center;
@@ -323,7 +373,7 @@ span#yel {
     align-items: center;
     justify-content: center;
     gap: 5px;
-    color: var(--secondarycl);
+    color: var(--text);
 }
 
 
@@ -333,7 +383,7 @@ span#yel {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--secondarycl);
+    color: var(--text);
     margin-left: 1.4rem;
     font-size: 11px;
 
@@ -450,29 +500,37 @@ span#yel {
 
 
 /* % 5 6 u U */
-.weather-day {
+.weather {
     transition: .8s;
     width: 100%;
     height: 100%;
     position: absolute;
-    background-image: url(../img/weather-day.webp);
     background-size: cover;
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
     opacity: 0.1;
+
 }
 
-.sun {
-    width: 100px;
-    height: 100px;
+.weather i {
+    font-size: 7rem;
     border-radius: 100%;
     margin-right: 2vw;
     margin-top: 18vh;
-    background: radial-gradient(circle, gold, rgb(243, 238, 191));
-    box-shadow: 0 0 80px gold;
 }
 
+.weather .sun {
+    color: var(--primarycl);
+    background: radial-gradient(circle, rgba(255, 217, 0, 0.281), rgba(252, 228, 14, 0.384));
+    box-shadow: 0 0 80px gold;
+    text-shadow:  0 0 30px gold;
+}
+
+.weather .moon {
+    color: white;
+text-shadow:  0 0 20px white;
+}
 
 
 .cov {
@@ -499,10 +557,10 @@ span#yel {
     --dot: 50%;
     --glow: 0 0 22px rgba(218, 212, 139, 0.685), 0 0 52px rgba(244, 231, 42, 0.548);
     background:
-        radial-gradient(circle at center, rgba(235, 200, 3, 0.658) var(--dot), transparent calc(var(--dot) + 0.5%)) 0 0 / var(--cell) var(--cell) repeat;
+        radial-gradient(circle at center, rgba(235, 200, 3, 0.568) var(--dot), rgba(207, 206, 206, 0.699) calc(var(--dot) + 0.5%)) 0 0 / var(--cell) var(--cell) repeat;
 }
 
-.cov:hover .weather-day {
+.cov:hover .weather{
     opacity: 0.5;
 }
 
@@ -552,7 +610,7 @@ span#yel {
 }
 
 .inabtxt h1 {
-    color: var(--secondarycl);
+    color: var(--text);
     font-size: 3rem;
     font-weight: 800;
     margin-bottom: 20px;
@@ -560,7 +618,7 @@ span#yel {
 }
 
 .inabtxt p {
-    color: var(--secondarycl);
+    color: var(--text);
     line-height: 24px;
     letter-spacing: 0.1rem;
 }
@@ -657,7 +715,7 @@ span#yel {
     letter-spacing: 0.18em;
     text-transform: uppercase;
     text-shadow: 0 0 20px rgba(0, 0, 0, 0.95);
-    color: rgba(255, 255, 255, 0.97);
+    color: var(--text);
 }
 
 .servhd p {
@@ -668,8 +726,8 @@ span#yel {
     font-weight: 700;
     color: #111;
     text-align: left;
-    border-left: 6px double #ffffff;
-    border-right: 6px double #ffffff;
+    border-left: 6px double var(--secondarycl);
+    border-right: 6px double var(--secondarycl);
     border-radius: 0 20px 20px 0;
     box-shadow: rgba(28, 29, 29, 0.48) 0px 20px 24px;
     z-index: 10;
@@ -678,7 +736,7 @@ span#yel {
 /* Main card */
 .listserve {
     width: 100%;
-    background: linear-gradient(135deg, rgba(7, 7, 10, 0.98), rgba(19, 13, 4, 0.98));
+    /* background: linear-gradient(135deg, rgba(7, 7, 10, 0.98), rgba(19, 13, 4, 0.98)); */
     border-radius: 0 24px 24px 0;
     box-shadow: rgba(0, 0, 0, 0.55) 0px 18px 40px;
     display: grid;
@@ -730,9 +788,9 @@ span#yel {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.04), transparent 58%),
-        linear-gradient(135deg, #050509, #120d07);
-    border-radius: 0 0 24px 0;
+    /* background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.04), transparent 58%),
+        linear-gradient(135deg, #050509, #120d07); */
+    background-color: var(--secondarycl);
     border-left: 1px solid rgba(255, 255, 255, 0.06);
 }
 

@@ -94,7 +94,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 17px;
+    gap: 1px;
 }
 
 .nav .iconsdisplay {
@@ -124,7 +124,7 @@ body {
     transition: .3s;
     color: var(--primarycl);
     transform-origin: left;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 20px;
     padding: 7px;
     /* background-color: #00000052; */
@@ -701,6 +701,7 @@ span#yel {
     background: url("../img/glodcode.png");
     background-size: cover;
     background-position: center;
+    background-position-x: left;
     border-top: 5px double var(--primarycl);
 }
 
@@ -895,8 +896,15 @@ span#yel {
 
 /* % 5 6 u U */
 
-
-@media(max-width:580px) {
+@media((min-width:601px) and (max-width:900px)) {
+.about{
+    width: 97%;
+}
+.inabt{
+    width: 47%;
+}
+}
+@media(max-width:600px) {
     .topbg {
         max-height: 380px;
     }

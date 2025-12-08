@@ -8,6 +8,8 @@
     font-weight: 400;
     font-style: normal;
     list-style: none;
+    -webkit-tap-highlight-color: transparent;
+
 }
 
 :root {
@@ -47,7 +49,16 @@
     background-image: url(../img/weather-night.webp);
 }
 
+div {
+    transition: .7s;
+}
+html{
+    scroll-behavior: smooth;
+}
+
 body {
+    scroll-behavior: smooth;
+    transition: .7s;
     width: 100%;
     --cell: 10px;
     --dot: 58%;
@@ -524,12 +535,12 @@ span#yel {
     color: var(--primarycl);
     background: radial-gradient(circle, rgba(255, 217, 0, 0.281), rgba(252, 228, 14, 0.384));
     box-shadow: 0 0 80px gold;
-    text-shadow:  0 0 30px gold;
+    text-shadow: 0 0 30px gold;
 }
 
 .weather .moon {
     color: white;
-text-shadow:  0 0 20px white;
+    text-shadow: 0 0 20px white;
 }
 
 
@@ -560,7 +571,7 @@ text-shadow:  0 0 20px white;
         radial-gradient(circle at center, rgba(235, 200, 3, 0.568) var(--dot), rgba(207, 206, 206, 0.699) calc(var(--dot) + 0.5%)) 0 0 / var(--cell) var(--cell) repeat;
 }
 
-.cov:hover .weather{
+.cov:hover .weather {
     opacity: 0.5;
 }
 
@@ -594,7 +605,8 @@ text-shadow:  0 0 20px white;
     justify-content: space-between;
     align-items: center;
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.349);
+    background: var(--thirdclA);
+    backdrop-filter: blur(1px);
     border: 3px solid white;
 }
 
@@ -610,7 +622,7 @@ text-shadow:  0 0 20px white;
 }
 
 .inabtxt h1 {
-    color: var(--text);
+    color: white;
     font-size: 3rem;
     font-weight: 800;
     margin-bottom: 20px;
@@ -618,7 +630,7 @@ text-shadow:  0 0 20px white;
 }
 
 .inabtxt p {
-    color: var(--text);
+    color: white;
     line-height: 24px;
     letter-spacing: 0.1rem;
 }
@@ -951,6 +963,134 @@ text-shadow:  0 0 20px white;
     filter: blur(0);
 }
 
+.portfolio {
+    width: 100%;
+    height: 500px;
+    background-image: url(../img/sm.png);
+    background-size: contain;
+    background-attachment: fixed;
+    margin-bottom: 100px;
+}
+
+
+.portfolio .dim {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio .dim::after {
+    content: "";
+    position: absolute;
+    width: 300%;
+    height: 300%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: conic-gradient(#000000be, #000000c0, #000000a6, #ffd90073, #0000008a, #000000ad, #000000b6, #e7b6136b, #000000a1, #000000b9, #000000a6, #ffd90062, #000000bd);
+    animation: 20s roll linear infinite;
+
+}
+
+.portfolio .dim:hover::after {
+    animation-play-state: paused;
+}
+
+@keyframes roll {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.portfolio .dim .first {
+    width: 100%;
+    height: 70%;
+    background-color: #00000077;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.portfolio .dim .second {
+    width: 100%;
+    height: 30%;
+    background-color: #00000077;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.restexthd {
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 12px;
+    font-family: var(--fontdiffer3);
+}
+
+.portfolio .dim .second h1 {
+    color: white;
+    display: flex;
+}
+
+.portfolio .dim .second>ul {
+    color: var(--text);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 900;
+    font-family: var(--fontdiffer3);
+    width: 100%;
+    z-index: 9;
+}
+
+.second li {
+    transition: .4s;
+    padding: 10px;
+       font-size: 20px;
+    border-radius: 40% 70% 0 70%;
+}
+
+.second li:hover {
+    background:var(--primaryclA);
+    backdrop-filter: blur(4px);
+    border-radius: 0 0 0 0;
+    text-shadow:  0 0 20px rgba(0, 0, 0, 0.842);
+    cursor: pointer;
+}
+
+.portfolio .dim .first>div {
+    width: 33%;
+    height: 30%;
+    background-color: rgba(0, 0, 0, 0.274);
+    font-size: 40px;
+    color: white;
+    font-weight: 800;
+    text-align: center;
+    align-content: center;
+    font-family: var(--fontdiffer3);
+    letter-spacing: 10px;
+    backdrop-filter: blur(7px);
+    z-index: 9;
+}
+
+.portfolio .dim .first>div:nth-child(2) {
+    width: 33%;
+    height: 70%;
+    background: url(../img/goldeye.png) #000000;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
 
 /* % 5 6 u U */
 
@@ -983,11 +1123,6 @@ text-shadow:  0 0 20px white;
         bottom: 0;
         background: none;
         box-shadow: none;
-        --cell: 10px;
-        --dot: 58%;
-        --glow: 0 0 22px rgba(244, 231, 42, 0.685), 0 0 52px rgba(244, 231, 42, 0.548);
-        background:
-            radial-gradient(circle at center, rgb(230, 229, 229) var(--dot), transparent calc(var(--dot) + 0.5%)) 0 0 / var(--cell) var(--cell) repeat;
 
     }
 
@@ -1130,6 +1265,30 @@ text-shadow:  0 0 20px white;
         font-size: 0.85rem;
     }
 
+    .portfolio {
+        height: 300px;
+        background-size: contain;
+        background-position: center;
+    }
+
+    .portfolio .dim .first>div {
+        font-size: 4vmin;
+        letter-spacing: 4px;
+    }
+
+    .portfolio .dim .first>div:nth-child(2) {
+        max-height: 100px;
+
+    }
+
+    .restexthd {
+        font-size: 5vmin;
+        letter-spacing: 7px;
+    }
+
+    .second li {
+       font-size: 4vmin;
+}
 }
 
 @media((min-width:601px) and (max-width:900px)) {
@@ -1139,6 +1298,21 @@ text-shadow:  0 0 20px white;
 
     .inabt {
         width: 47%;
+    }
+
+    .portfolio .dim .first>div {
+        font-size: 5vmin;
+        letter-spacing: 4px;
+    }
+
+    .portfolio .dim .first>div:nth-child(2) {
+        max-height: 200px;
+
+    }
+
+    .restexthd {
+        font-size: 7vmin;
+        letter-spacing: 7px;
     }
 }
 

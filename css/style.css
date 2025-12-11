@@ -52,7 +52,8 @@
 div {
     transition: .7s;
 }
-html{
+
+html {
     scroll-behavior: smooth;
 }
 
@@ -169,9 +170,11 @@ body {
     cursor: pointer;
     display: none;
 }
-.nav .iconsdisplay a{
-      color: var(--primarycl);
+
+.nav .iconsdisplay a {
+    color: var(--primarycl);
 }
+
 .nav .icondisplay i {
     transition: .3s;
     text-shadow: 0 0 20px black;
@@ -1022,13 +1025,11 @@ span#yel {
 .portfolio .dim .second {
     width: 100%;
     height: 30%;
-    background-color: #00000077;
+    background-color: #000000da;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-
 }
 
 .restexthd {
@@ -1039,34 +1040,59 @@ span#yel {
 }
 
 .portfolio .dim .second h1 {
+      backdrop-filter: blur(4px);
+     width: 100%;
     color: white;
     display: flex;
+    justify-content: center;
 }
 
-.portfolio .dim .second>ul {
+/* Parent container for the list */
+.portfolio .dim .second > ul {
     color: var(--text);
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     font-weight: 900;
     font-family: var(--fontdiffer3);
-    width: 100%;
-    z-index: 9;
+    backdrop-filter: blur(4px);
+    width: 97%;
+    z-index: 99;
+    position: relative; /* Important for trail positioning */
+    padding-bottom: 15px; /* Space for trail */
+    margin: 0 auto; /* Center it */
+}
+
+/* Trail container - positioned absolutely */
+.trail {
+    position: absolute;
+    height: 8px; /* Make it visible */
+    bottom: 0;
+    left: 0;
+    width: 0; /* Will be set by JS */
+    overflow: hidden; /* Keep indiv contained */
+    background-color:var(--primarycl);
+    z-index: 99;
 }
 
 .second li {
     transition: .4s;
-    padding: 10px;
-       font-size: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
     border-radius: 40% 70% 0 70%;
+    position: relative;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    /* min-width: 98px; */
+    z-index: 2; /* Above the trail */
 }
 
 .second li:hover {
-    background:var(--primaryclA);
+    background: var(--primaryclA);
     backdrop-filter: blur(4px);
     border-radius: 0 0 0 0;
-    text-shadow:  0 0 20px rgba(0, 0, 0, 0.842);
-    cursor: pointer;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.842);
 }
 
 .portfolio .dim .first>div {
@@ -1268,10 +1294,11 @@ span#yel {
     }
 
     .portfolio {
-        height: 300px;
-        background:url(../img/Sm.png) ;
+        height: 400px;
+        background: url(../img/Sm.png);
         background-size: contain;
         background-position: center;
+        background-repeat: no-repeat;
     }
 
     .portfolio .dim .first>div {
@@ -1290,8 +1317,8 @@ span#yel {
     }
 
     .second li {
-       font-size: 4vmin;
-}
+        font-size: 3vmin;
+    }
 }
 
 @media((min-width:601px) and (max-width:900px)) {
@@ -1317,6 +1344,7 @@ span#yel {
         font-size: 7vmin;
         letter-spacing: 7px;
     }
+
 }
 
 /* % 5 6 u U */

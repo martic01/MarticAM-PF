@@ -226,4 +226,62 @@ $(document).ready(function () {
         $('.weather').toggleClass('skyn skyd');
     });
 
+
+     setTimeout(initializeTrail, 1000);
+    
+    function initializeTrail() {
+        const listItems = $('.second li');
+        const trail = $('.trail');
+        const listContainer = $('.second > ul');
+        
+        // Position trail inside the list container
+        trail.css({
+            position: 'absolute',
+            bottom: '0',
+            left: listContainer.offset().left + 'px'
+        });
+        
+        // Set initial position to first item
+        if (listItems.length > 0) {
+            const firstItem = listItems.first();
+            const itemWidth = firstItem.outerWidth();
+            const itemLeft = firstItem.position().left;
+            
+            trail.css({
+                width: itemWidth + 'px',
+                left: (listContainer.offset().left + itemLeft) + 'px'
+            });
+        }
+        
+        // Update trail on hover
+        listItems.each(function(index) {
+            $(this).on('mouseenter', function() {
+                const $this = $(this);
+                const itemWidth = $this.outerWidth();
+                const itemLeft = $this.position().left;
+                const containerLeft = listContainer.offset().left;
+                
+                trail.css({
+                    width: itemWidth + 'px',
+                    left: (containerLeft + itemLeft) + 'px'
+                });
+            });
+        });
+        
+        // Return to first item when mouse leaves the list
+        // listContainer.on('mouseleave', function() {
+        //     const firstItem = listItems.first();
+        //     const itemWidth = firstItem.outerWidth();
+        //     const itemLeft = firstItem.position().left;
+        //     const containerLeft = listContainer.offset().left;
+            
+        //     trail.css({
+        //         width: itemWidth + 'px',
+        //         left: (containerLeft + itemLeft) + 'px'
+        //     });
+        // });
+    }
+    
+    // Reinitialize on window resize
+    $(window).on('resize', initializeTrail);
 });

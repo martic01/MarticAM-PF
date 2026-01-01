@@ -974,7 +974,7 @@ span#yel {
     background-image: url(../img/sm.png);
     background-size: contain;
     background-attachment: fixed;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
 }
 
 
@@ -1066,7 +1066,7 @@ span#yel {
 /* Trail container - positioned absolutely */
 .trail {
     position: absolute;
-    height: 8px; /* Make it visible */
+    height: 10px; /* Make it visible */
     bottom: 0;
     left: 0;
     width: 0; /* Will be set by JS */
@@ -1120,6 +1120,284 @@ span#yel {
 }
 
 
+
+/* Projects Grid Container */
+.projects-grid {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0.3rem auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.projects-grid.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Project Card */
+.project-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Animated Border */
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(
+    45deg,
+    var(--primarycl),
+    transparent,
+    var(--primarycl),
+    transparent,
+    var(--primarycl)
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderFlow 3s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
+/* Card Image */
+.card-image {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+/* Card Category Badge */
+.card-category {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--primarycl);
+  color: #000;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+/* Card Content */
+.card-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.884));
+}
+
+.card-title {
+  color: var(--primarycl);
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+  font-family: var(--fontdiffer3);
+  letter-spacing: 1px;
+}
+
+.card-description {
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+  opacity: 0.9;
+}
+
+/* Card Technologies */
+.card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tech-tag {
+  background: rgba(255, 215, 0, 0.1);
+  color: var(--primarycl);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+/* Card Links */
+.card-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.card-link {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem;
+  background: var(--primarycl);
+  color: #000;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.card-link:hover {
+  background: var(--drgold);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+.card-link.github {
+  background: transparent;
+  border: 2px solid var(--primarycl);
+  color: var(--primarycl);
+}
+
+.card-link.github:hover {
+  background: var(--primarycl);
+  color: #000;
+}
+
+/* Animation for grid items */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-card {
+  animation: slideUp 0.5s ease forwards;
+  animation-delay: calc(var(--item-index) * 0.1s);
+  opacity: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .project-card {
+    height: 490px;
+  }
+  
+  .card-image {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-links {
+    flex-direction: column;
+  }
+}
+
+/* Update trail positioning */
+.second {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.trail {
+  position: absolute;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  background-color: var(--primarycl);
+  transition: all 0.3s ease;
+  z-index: 99;
+}
+
+.second li.active {
+  color: var(--primarycl);
+  text-shadow: 0 0 10px var(--primaryclA);
+}
+
+/* Fade animation between categories */
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.projects-grid.fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+.projects-grid.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
 /* % 5 6 u U */
 
 

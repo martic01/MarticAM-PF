@@ -180,13 +180,13 @@ function startTypingLoop() {
 const portfolioProjects = [
   {
     id: 1,
-    title: "E-Commerce Dashboard",
-    description: "A responsive e-commerce dashboard with real-time analytics, order tracking, and inventory management. Built with pure HTML5 and CSS3 including CSS Grid and Flexbox.",
-    category: "html-css",
-    technologies: ["HTML5", "CSS3", "Flexbox", "Grid"],
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop",
-    liveLink: "#",
-    githubLink: "#",
+    title: "No Monsters(GAME)",
+    description: "Welcome to the JavaScript Shooting Game! This is an exciting shooting game where players can shoot enemies and bosses while managing health and resources. The game is built using HTML, CSS, and JavaScript, providing a smooth and engaging gameplay experience.",
+    category: "javascript",
+    technologies: ["HTML", "CSS", "Javascript", "Grid"],
+    image: "../img/projimg/giphy.gif",
+    liveLink: "https://martic01.github.io/rpggungame",
+    githubLink: "https://github.com/martic01/rpggungame",
     featured: true
   },
   {
@@ -195,7 +195,7 @@ const portfolioProjects = [
     description: "Modern portfolio website with animated elements, smooth transitions, and responsive design using CSS animations and advanced layout techniques.",
     category: "html-css",
     technologies: ["HTML5", "CSS3", "Animations", "Responsive"],
-    image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=400&h=250&fit=crop",
+    image: "../img/projimg/giphy (1).gif",
     liveLink: "#",
     githubLink: "#"
   },
@@ -205,7 +205,7 @@ const portfolioProjects = [
     description: "Real-time weather application with location detection, 7-day forecast, and temperature unit conversion. Uses OpenWeather API for data.",
     category: "javascript",
     technologies: ["JavaScript", "API", "Async/Await", "LocalStorage"],
-    image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=400&h=250&fit=crop",
+    image: "../img/projimg/giphy (2).gif",
     liveLink: "#",
     githubLink: "#",
     featured: true
@@ -216,7 +216,7 @@ const portfolioProjects = [
     description: "Drag-and-drop task management application with categories, deadlines, and progress tracking. Features local storage persistence.",
     category: "javascript",
     technologies: ["JavaScript", "Drag & Drop", "LocalStorage", "ES6+"],
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w-400&h=250&fit=crop",
+    image: "../img/projimg/giphy (3).gif",
     liveLink: "#",
     githubLink: "#"
   },
@@ -226,7 +226,7 @@ const portfolioProjects = [
     description: "Cryptocurrency tracking dashboard with real-time price updates, portfolio simulation, and historical data visualization using CoinGecko API.",
     category: "react-jsx",
     technologies: ["React", "Chart.js", "API", "Context API"],
-    image: "https://images.unsplash.com/photo-1620336655055-bd87c5d1d73f?w=400&h=250&fit=crop",
+       image: "../img/projimg/giphy (4).gif",
     liveLink: "#",
     githubLink: "#",
     featured: true
@@ -237,7 +237,7 @@ const portfolioProjects = [
     description: "Admin dashboard for social media analytics with user management, content scheduling, and engagement metrics visualization.",
     category: "react-jsx",
     technologies: ["React", "Redux", "Material-UI", "Recharts"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
+    image: "../img/projimg/giphy (5).gif",
     liveLink: "#",
     githubLink: "#"
   },
@@ -439,6 +439,11 @@ function initializeTrail() {
   });
 }
 
+function changeBackgroundPattern(pattern) {
+    $('body').removeClass('chevron-bg geometric-bg diamond-bg subtle-bg alternative-bg');
+    $('body').addClass(pattern);
+}
+
 $(document).ready(function () {
     $('.fa-folder').click(function () {
         $('#wildspl').fadeToggle();
@@ -486,7 +491,11 @@ $(document).ready(function () {
         $('.weather').toggleClass('skyn skyd');
     });
 
-
+ if (isNight) {
+        $('body').removeClass('chevron-bg').addClass('diamond-bg');
+    } else {
+        $('body').removeClass('diamond-bg').addClass('chevron-bg');
+    }
      setTimeout(initializeTrail, 1000);
     
     function initializeTrail() {

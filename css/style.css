@@ -61,13 +61,99 @@ body {
     scroll-behavior: smooth;
     transition: .7s;
     width: 100%;
-    --cell: 10px;
-    --dot: 58%;
-    --glow: 0 0 22px rgba(240, 239, 233, 0.685), 0 0 52px rgba(244, 231, 42, 0.548);
-    background:
-        radial-gradient(circle at center, var(--darksec) var(--dot), var(--secondarycl) calc(var(--dot) + 0.5%)) 0 0 / var(--cell) var(--cell) repeat;
-
+    --triangle-size: 30px; /* Made bigger */
+    background-color: var(--bg);
+    background-image: 
+        linear-gradient(30deg, var(--darksec) 12%, transparent 12.5%, transparent 87%, var(--darksec) 87.5%, var(--darksec)),
+        linear-gradient(150deg, var(--darksec) 12%, transparent 12.5%, transparent 87%, var(--darksec) 87.5%, var(--darksec)),
+        linear-gradient(30deg, var(--darksec) 12%, transparent 12.5%, transparent 87%, var(--darksec) 87.5%, var(--darksec)),
+        linear-gradient(150deg, var(--darksec) 12%, transparent 12.5%, transparent 87%, var(--darksec) 87.5%, var(--darksec)),
+        linear-gradient(60deg, var(--secondaryclA) 25%, transparent 25.5%, transparent 75%, var(--secondaryclA) 75%, var(--secondaryclA)),
+        linear-gradient(60deg, var(--secondaryclA) 25%, transparent 25.5%, transparent 75%, var(--secondaryclA) 75%, var(--secondaryclA));
+    background-size: var(--triangle-size) calc(var(--triangle-size) * 1.732);
+    background-position: 0 0, 0 0, calc(var(--triangle-size) / 2) calc(var(--triangle-size) * 0.866), calc(var(--triangle-size) / 2) calc(var(--triangle-size) * 0.866), 0 0, calc(var(--triangle-size) / 2) calc(var(--triangle-size) * 0.866);
+    background-attachment: fixed;
+    overflow-x: hidden;
 }
+
+/* For night mode */
+.night body {
+    background-image: 
+        linear-gradient(30deg, var(--darksec) 12%, transparent 12.5%, transparent 87%, var(--darksec) 87.5%, var(--darksec)),
+        linear-gradient(150deg, var(--darksec) 12%, transparent 12.5%, transparent 87%, var(--darksec) 87.5%, var(--darksec)),
+        linear-gradient(30deg, var(--darksec) 12%, transparent 12.5%, transparent 87%, var(--darksec) 87.5%, var(--darksec)),
+        linear-gradient(150deg, var(--darksec) 12%, transparent 12.5%, transparent 87%, var(--darksec) 87.5%, var(--darksec)),
+        linear-gradient(60deg, var(--secondaryclA) 25%, transparent 25.5%, transparent 75%, var(--secondaryclA) 75%, var(--secondaryclA)),
+        linear-gradient(60deg, var(--secondaryclA) 25%, transparent 25.5%, transparent 75%, var(--secondaryclA) 75%, var(--secondaryclA));
+}
+
+/* Alternative simpler triangle pattern (if above is too heavy) */
+body.alternative-bg {
+    --triangle-size: 30px; /* Even bigger */
+    background-color: var(--bg);
+    background-image: 
+        linear-gradient(45deg, var(--darksec) 25%, transparent 25%, transparent 75%, var(--darksec) 75%),
+        linear-gradient(45deg, var(--darksec) 25%, transparent 25%, transparent 75%, var(--darksec) 75%);
+    background-size: var(--triangle-size) var(--triangle-size);
+    background-position: 0 0, calc(var(--triangle-size) / 2) calc(var(--triangle-size) / 2);
+    background-attachment: fixed;
+}
+
+/* Large geometric pattern option */
+body.geometric-bg {
+    --pattern-size: 100px; /* Very large */
+    background-color: var(--bg);
+    background-image: 
+        linear-gradient(45deg, var(--darksec) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--darksec) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--darksec) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--darksec) 75%);
+    background-size: var(--pattern-size) var(--pattern-size);
+    background-position: 0 0, 0 calc(var(--pattern-size) / 2), calc(var(--pattern-size) / 2) calc(var(--pattern-size) * -1), calc(var(--pattern-size) * -1) calc(var(--pattern-size) / 2);
+    background-attachment: fixed;
+}
+
+/* Diamond pattern option */
+body.diamond-bg {
+    --diamond-size: 30px;
+    background-color: var(--bg);
+    background-image: 
+        linear-gradient(45deg, var(--darksec) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--darksec) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--darksec) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--darksec) 75%);
+    background-size: var(--diamond-size) var(--diamond-size);
+    background-position: 0 0, 0 calc(var(--diamond-size) / 2), calc(var(--diamond-size) / 2) calc(var(--diamond-size) * -1), calc(var(--diamond-size) * -1) calc(var(--diamond-size) / 2);
+    background-attachment: fixed;
+}
+
+/* Chevron pattern option (most modern) */
+body.chevron-bg {
+    --chevron-size: 70px;
+    background-color: var(--bg);
+    background-image: 
+        linear-gradient(45deg, var(--secondaryclA) 25%, var(--secondarycl) 25%, transparent 75%, var(--darksec) 75%, var(--darksec)),
+        linear-gradient(-45deg, var(--darksec) 25%,var(--secondarycl) 25%, var(--secondarycl) 75%, var(--darksec) 75%, var(--darksec));
+    background-size: var(--chevron-size) var(--chevron-size);
+    background-position: 0 0;
+    background-attachment: fixed;
+}
+
+/* If you want to keep it subtle, use this */
+body.subtle-bg {
+    --pattern-size: 120px;
+    background-color: var(--bg);
+    background-image: 
+        linear-gradient(30deg, var(--darksec) 12%, transparent 12.5%, transparent 87%, var(--darksec) 87.5%, var(--darksec)),
+        linear-gradient(150deg, var(--darksec) 12%, transparent 12.5%, transparent 87%, var(--darksec) 87.5%, var(--darksec));
+    background-size: var(--pattern-size) calc(var(--pattern-size) * 1.732);
+    background-position: 0 0;
+    background-attachment: fixed;
+    opacity: 0.3;
+}
+
+/* For the .cov section, let's also update to match */
+
 
 .theme {
     width: 54px;
@@ -1147,7 +1233,7 @@ span#yel {
   overflow: hidden;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 400px;
+  height: 500px;
   display: flex;
   flex-direction: column;
 }
@@ -1236,12 +1322,12 @@ span#yel {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.884));
+  background: linear-gradient(to bottom, transparent,#000000ee,#000000d2, #000000ea);
 }
 
 .card-title {
   color: var(--primarycl);
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: bold;
   margin-bottom: 0.8rem;
   font-family: var(--fontdiffer3);
@@ -1249,7 +1335,7 @@ span#yel {
 }
 
 .card-description {
-  color: var(--text);
+  color: white;
   font-size: 0.95rem;
   line-height: 1.5;
   margin-bottom: 1.2rem;
@@ -1281,7 +1367,7 @@ span#yel {
   margin-top: auto;
 }
 
-.card-link {
+.card-link{
   flex: 1;
   display: flex;
   align-items: center;
@@ -1299,7 +1385,7 @@ span#yel {
 
 .card-link:hover {
   background: var(--drgold);
-  transform: translateY(-2px);
+  
   box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
 }
 

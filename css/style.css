@@ -57,28 +57,9 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    scroll-behavior: smooth;
-    transition: .7s;
-    width: 100%;
-    --triangle-size: 30px; /* Made bigger */
-    background-color: var(--bg);
-    background-image: 
-        linear-gradient(30deg, var(--darksec) 12%, transparent 12.5%, transparent 87%, var(--darksec) 87.5%, var(--darksec)),
-        linear-gradient(150deg, var(--darksec) 12%, transparent 12.5%, transparent 87%, var(--darksec) 87.5%, var(--darksec)),
-        linear-gradient(30deg, var(--darksec) 12%, transparent 12.5%, transparent 87%, var(--darksec) 87.5%, var(--darksec)),
-        linear-gradient(150deg, var(--darksec) 12%, transparent 12.5%, transparent 87%, var(--darksec) 87.5%, var(--darksec)),
-        linear-gradient(60deg, var(--secondaryclA) 25%, transparent 25.5%, transparent 75%, var(--secondaryclA) 75%, var(--secondaryclA)),
-        linear-gradient(60deg, var(--secondaryclA) 25%, transparent 25.5%, transparent 75%, var(--secondaryclA) 75%, var(--secondaryclA));
-    background-size: var(--triangle-size) calc(var(--triangle-size) * 1.732);
-    background-position: 0 0, 0 0, calc(var(--triangle-size) / 2) calc(var(--triangle-size) * 0.866), calc(var(--triangle-size) / 2) calc(var(--triangle-size) * 0.866), 0 0, calc(var(--triangle-size) / 2) calc(var(--triangle-size) * 0.866);
-    background-attachment: fixed;
-    overflow-x: hidden;
-}
-
 /* For night mode */
 .night body {
-    background-image: 
+    background-image:
         linear-gradient(30deg, var(--darksec) 12%, transparent 12.5%, transparent 87%, var(--darksec) 87.5%, var(--darksec)),
         linear-gradient(150deg, var(--darksec) 12%, transparent 12.5%, transparent 87%, var(--darksec) 87.5%, var(--darksec)),
         linear-gradient(30deg, var(--darksec) 12%, transparent 12.5%, transparent 87%, var(--darksec) 87.5%, var(--darksec)),
@@ -89,9 +70,10 @@ body {
 
 /* Alternative simpler triangle pattern (if above is too heavy) */
 body.alternative-bg {
-    --triangle-size: 30px; /* Even bigger */
+    --triangle-size: 30px;
+    /* Even bigger */
     background-color: var(--bg);
-    background-image: 
+    background-image:
         linear-gradient(45deg, var(--darksec) 25%, transparent 25%, transparent 75%, var(--darksec) 75%),
         linear-gradient(45deg, var(--darksec) 25%, transparent 25%, transparent 75%, var(--darksec) 75%);
     background-size: var(--triangle-size) var(--triangle-size);
@@ -101,9 +83,10 @@ body.alternative-bg {
 
 /* Large geometric pattern option */
 body.geometric-bg {
-    --pattern-size: 100px; /* Very large */
+    --pattern-size: 100px;
+    /* Very large */
     background-color: var(--bg);
-    background-image: 
+    background-image:
         linear-gradient(45deg, var(--darksec) 25%, transparent 25%),
         linear-gradient(-45deg, var(--darksec) 25%, transparent 25%),
         linear-gradient(45deg, transparent 75%, var(--darksec) 75%),
@@ -117,7 +100,7 @@ body.geometric-bg {
 body.diamond-bg {
     --diamond-size: 30px;
     background-color: var(--bg);
-    background-image: 
+    background-image:
         linear-gradient(45deg, var(--darksec) 25%, transparent 25%),
         linear-gradient(-45deg, var(--darksec) 25%, transparent 25%),
         linear-gradient(45deg, transparent 75%, var(--darksec) 75%),
@@ -131,9 +114,9 @@ body.diamond-bg {
 body.chevron-bg {
     --chevron-size: 70px;
     background-color: var(--bg);
-    background-image: 
+    background-image:
         linear-gradient(45deg, var(--secondaryclA) 25%, var(--secondarycl) 25%, transparent 75%, var(--darksec) 75%, var(--darksec)),
-        linear-gradient(-45deg, var(--darksec) 25%,var(--secondarycl) 25%, var(--secondarycl) 75%, var(--darksec) 75%, var(--darksec));
+        linear-gradient(-45deg, var(--darksec) 25%, var(--secondarycl) 25%, var(--secondarycl) 75%, var(--darksec) 75%, var(--darksec));
     background-size: var(--chevron-size) var(--chevron-size);
     background-position: 0 0;
     background-attachment: fixed;
@@ -143,7 +126,7 @@ body.chevron-bg {
 body.subtle-bg {
     --pattern-size: 120px;
     background-color: var(--bg);
-    background-image: 
+    background-image:
         linear-gradient(30deg, var(--darksec) 12%, transparent 12.5%, transparent 87%, var(--darksec) 87.5%, var(--darksec)),
         linear-gradient(150deg, var(--darksec) 12%, transparent 12.5%, transparent 87%, var(--darksec) 87.5%, var(--darksec));
     background-size: var(--pattern-size) calc(var(--pattern-size) * 1.732);
@@ -1126,15 +1109,15 @@ span#yel {
 }
 
 .portfolio .dim .second h1 {
-      backdrop-filter: blur(4px);
-     width: 100%;
+    backdrop-filter: blur(4px);
+    width: 100%;
     color: white;
     display: flex;
     justify-content: center;
 }
 
 /* Parent container for the list */
-.portfolio .dim .second > ul {
+.portfolio .dim .second>ul {
     color: var(--text);
     display: flex;
     justify-content: space-between;
@@ -1144,20 +1127,25 @@ span#yel {
     backdrop-filter: blur(4px);
     width: 97%;
     z-index: 99;
-    position: relative; /* Important for trail positioning */
-    padding-bottom: 15px; /* Space for trail */
-    margin: 0 auto; /* Center it */
+    position: relative;
+    /* Important for trail positioning */
+    padding-bottom: 15px;
+    /* Space for trail */
+    margin: 0 auto;
+    /* Center it */
 }
 
 /* Trail container - positioned absolutely */
 .trail {
     position: absolute;
-    height: 10px; /* Make it visible */
+    height: 10px;
+    /* Make it visible */
     bottom: 0;
-    left: 0;
-    width: 0; /* Will be set by JS */
-    overflow: hidden; /* Keep indiv contained */
-    background-color:var(--primarycl);
+    width: 0;
+    /* Will be set by JS */
+    overflow: hidden;
+    /* Keep indiv contained */
+    background-color: var(--primarycl);
     z-index: 99;
 }
 
@@ -1171,7 +1159,8 @@ span#yel {
     flex: 1;
     text-align: center;
     /* min-width: 98px; */
-    z-index: 2; /* Above the trail */
+    z-index: 2;
+    /* Above the trail */
 }
 
 .second li:hover {
@@ -1209,281 +1198,313 @@ span#yel {
 
 /* Projects Grid Container */
 .projects-grid {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0.3rem auto;
-  padding: 0 1rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 2rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0.3rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .projects-grid.active {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Project Card */
 .project-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 500px;
-  display: flex;
-  flex-direction: column;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 /* Animated Border */
 .project-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  padding: 2px;
-  background: linear-gradient(
-    45deg,
-    var(--primarycl),
-    transparent,
-    var(--primarycl),
-    transparent,
-    var(--primarycl)
-  );
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  animation: borderFlow 3s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 7px;
+    background: linear-gradient(45deg,
+            var(--primarycl),
+            transparent,
+            var(--primarycl),
+            transparent,
+            var(--primarycl));
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: borderFlow 8s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.project-card:hover::before {
-  opacity: 1;
-}
 
 @keyframes borderFlow {
-  0% {
-    background-position: 0% 0%;
-  }
-  100% {
-    background-position: 200% 200%;
-  }
+    0% {
+        background-position: 0% 0%;
+        opacity: 1;
+    }
+
+    20% {
+        background-position: 40% 40%;
+        opacity: 0.2;
+    }
+
+    40% {
+        background-position: 80% 80%;
+        opacity: 0.4;
+    }
+
+    60% {
+        background-position: 120% 120%;
+        opacity: 0.6;
+    }
+
+    80% {
+        background-position: 160% 160%;
+        opacity: 0.8;
+    }
+
+    100% {
+        background-position: 200% 200%;
+        opacity: 1;
+    }
 }
 
 /* Card Image */
 .card-image {
-  width: 100%;
-  height: 180px;
-  overflow: hidden;
-  position: relative;
+    width: 100%;
+    height: 40%;
+    overflow: hidden;
+    position: relative;
 }
 
 .card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
 .project-card:hover .card-image img {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 /* Card Category Badge */
 .card-category {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: var(--primarycl);
-  color: #050505;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  z-index: 2;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--primarycl);
+    color: #050505;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
 }
 
 /* Card Content */
 .card-content {
-  padding: 1.5rem;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(to bottom, transparent,#000000ee,#000000d2, #000000ea);
+    padding: 1.4rem;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, transparent, #000000ee, #000000d2, #000000ea);
 }
 
 .card-title {
-  color: var(--primarycl);
-  font-size: 1.4rem;
-  font-weight: bold;
-  margin-bottom: 0.8rem;
-  font-family: var(--fontdiffer3);
-  letter-spacing: 1px;
+    color: var(--primarycl);
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+    font-family: var(--fontdiffer3);
+    letter-spacing: 1px;
 }
 
 .card-description {
-  color: white;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  margin-bottom: 1.2rem;
-  flex-grow: 1;
-  opacity: 0.9;
+    color: white;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+    flex-grow: 1;
+    opacity: 0.9;
 }
 
 /* Card Technologies */
 .card-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .tech-tag {
-  background: rgba(255, 215, 0, 0.1);
-  color: var(--primarycl);
-  padding: 0.3rem 0.8rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  border: 1px solid rgba(255, 215, 0, 0.3);
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--primarycl);
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    border: 1px solid rgba(255, 215, 0, 0.3);
 }
 
 /* Card Links */
 .card-links {
-  display: flex;
-  gap: 1rem;
-  margin-top: auto;
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
 }
 
-.card-link{
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.6rem;
-  background: var(--primarycl);
-  color: #000;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  text-align: center;
+.card-link {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem;
+    background: var(--primarycl);
+    color: #000;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-align: center;
+    z-index: 9999;
 }
 
 .card-link:hover {
-  background: var(--drgold);
-  
-  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    background: var(--drgold);
+
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
 }
 
 .card-link.github {
-  background: transparent;
-  border: 2px solid var(--primarycl);
-  color: var(--primarycl);
+    background: transparent;
+    border: 2px solid var(--primarycl);
+    color: var(--primarycl);
 }
 
 .card-link.github:hover {
-  background: var(--primarycl);
-  color: #000;
+    background: var(--primarycl);
+    color: #000;
 }
 
 /* Animation for grid items */
 @keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .project-card {
-  animation: slideUp 0.5s ease forwards;
-  animation-delay: calc(var(--item-index) * 0.1s);
-  opacity: 0;
+    animation: slideUp 0.5s ease forwards;
+    animation-delay: calc(var(--item-index) * 0.1s);
+    opacity: 0;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .project-card {
-    height: 490px;
-  }
-  
-  .card-image {
-    height: 200px;
-  }
+    .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .project-card {
+        height: 490px;
+    }
+
+    .card-image {
+        height: 200px;
+    }
 }
 
 @media (max-width: 480px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .card-links {
-    flex-direction: column;
-  }
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-links {
+        flex-direction: column;
+    }
 }
 
 /* Update trail positioning */
 .second {
-  position: relative;
-  padding-bottom: 2rem;
+    position: relative;
+    padding-bottom: 2rem;
 }
 
 .trail {
-  position: absolute;
-  height: 3px;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  background-color: var(--primarycl);
-  transition: all 0.3s ease;
-  z-index: 99;
+    position: absolute;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    background-color: var(--primarycl);
+    transition: all 0.3s ease;
+    z-index: 99;
 }
 
 .second li.active {
-  color: var(--primarycl);
-  text-shadow: 0 0 10px var(--primaryclA);
+    color: var(--primarycl);
+    text-shadow: 0 0 10px var(--primaryclA);
 }
 
 /* Fade animation between categories */
 @keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .projects-grid.fade-out {
-  animation: fadeOut 0.3s ease forwards;
+    animation: fadeOut 0.3s ease forwards;
 }
 
 .projects-grid.fade-in {
-  animation: fadeIn 0.5s ease forwards;
+    animation: fadeIn 0.5s ease forwards;
 }
+
 /* % 5 6 u U */
 
 

@@ -183,7 +183,7 @@ const portfolioProjects = [
     title: "No Monsters(GAME)",
     description: "Welcome to the JavaScript Shooting Game! This is an exciting shooting game where players can shoot enemies and bosses while managing health and resources. The game is built using HTML, CSS, and JavaScript, providing a smooth and engaging gameplay experience.",
     category: "javascript",
-    technologies: ["HTML", "CSS", "Javascript", "Grid"],
+    technologies: ["HTML", "CSS", "Javascript"],
     image: "../img/projimg/giphy.gif",
     liveLink: "https://martic01.github.io/rpggungame",
     githubLink: "https://github.com/martic01/rpggungame",
@@ -191,44 +191,44 @@ const portfolioProjects = [
   },
   {
     id: 2,
-    title: "Portfolio Website",
-    description: "Modern portfolio website with animated elements, smooth transitions, and responsive design using CSS animations and advanced layout techniques.",
-    category: "html-css",
-    technologies: ["HTML5", "CSS3", "Animations", "Responsive"],
+    title: "calculator",
+    description: "Martic calculator is a basic scientific calculator that help it user evalute the input value and return the answer , it contains various features like cos,sin,tan , root and evalute any number or expression e.t.c it doesn't return a wrong anwser.",
+    category: "javascript",
+    technologies: ["HTML5", "CSS3","Javascript"],
     image: "../img/projimg/giphy (1).gif",
     liveLink: "#",
-    githubLink: "#"
+    githubLink: "https://github.com/martic01/RealCalculator"
   },
   {
     id: 3,
-    title: "Weather App",
-    description: "Real-time weather application with location detection, 7-day forecast, and temperature unit conversion. Uses OpenWeather API for data.",
+    title: "Flipping Cards Game",
+    description: "This is a JavaScript-based interactive card-flipping game where the player needs to uncover matching cards in order to win. ",
     category: "javascript",
-    technologies: ["JavaScript", "API", "Async/Await", "LocalStorage"],
+    technologies: ["JavaScript","HTML", "CSS", "Animations"],
     image: "../img/projimg/giphy (2).gif",
     liveLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/martic01/memory",
     featured: true
   },
   {
     id: 4,
-    title: "Task Manager",
-    description: "Drag-and-drop task management application with categories, deadlines, and progress tracking. Features local storage persistence.",
-    category: "javascript",
-    technologies: ["JavaScript", "Drag & Drop", "LocalStorage", "ES6+"],
+    title: "Rotatin Glowing 3D cube",
+    description: "Pure css 3D cube animation also includes good use of linear gradient",
+    category: "html-css",
+    technologies: ["HTML","CSS"],
     image: "../img/projimg/giphy (3).gif",
     liveLink: "#",
-    githubLink: "#"
+    githubLink: "https://github.com/martic01/rotatingglowingcube"
   },
   {
     id: 5,
-    title: "Crypto Tracker",
-    description: "Cryptocurrency tracking dashboard with real-time price updates, portfolio simulation, and historical data visualization using CoinGecko API.",
-    category: "react-jsx",
-    technologies: ["React", "Chart.js", "API", "Context API"],
+    title: "Squid Dice",
+    description: "This is a simple two-player dice game where each player rolls a virtual die to accumulate points. The first player to reach a specific score (e.g., 10) wins the game. ",
+    category: "javascript",
+    technologies: ["Javascript", "HTML", "CSS"],
        image: "../img/projimg/giphy (4).gif",
     liveLink: "#",
-    githubLink: "#",
+    githubLink: "https://github.com/martic01/squiddice",
     featured: true
   },
   {
@@ -318,7 +318,7 @@ function createProjectCard(project, index) {
 }
 
 // Function to render projects
-function renderProjects(category = 'all') {
+function renderProjects(category = 'javascript') {
   const grid = $('.projects-grid');
   
   // Add fade out animation
@@ -328,12 +328,15 @@ function renderProjects(category = 'all') {
     grid.empty();
     
     let projectsToRender;
-    if (category === 'all') {
-      projectsToRender = portfolioProjects;
-    } else {
       projectsToRender = portfolioProjects.filter(project => project.category === category);
-    }
+
+//  if (category === 'all') {
+//       projectsToRender = portfolioProjects;
+//     } else {
+//       projectsToRender = portfolioProjects.filter(project => project.category === category);
+//     }
     
+
     // Shuffle projects for visual variety (optional)
     const shuffledProjects = [...projectsToRender].sort(() => Math.random() - 0.5);
     
@@ -378,8 +381,8 @@ function updateActiveCategory(category) {
 // Initialize portfolio
 function initializePortfolio() {
   // Initial render (show all projects)
-  renderProjects('all');
-  updateActiveCategory('all');
+  renderProjects('javascript');
+  updateActiveCategory('javascript');
   
   // Add click handlers to category buttons
   $('.second li').on('click', function() {
@@ -407,36 +410,6 @@ function initializeTrail() {
     });
   }
   
-  // Add hover effect
-  listItems.each(function() {
-    $(this).on('mouseenter', function() {
-      if (!$(this).hasClass('active')) {
-        const $this = $(this);
-        const itemWidth = $this.outerWidth();
-        const itemLeft = $this.position().left;
-        const containerLeft = listContainer.offset().left;
-        
-        trail.css({
-          width: itemWidth + 'px',
-          left: (containerLeft + itemLeft) + 'px',
-          opacity: 0.5
-        });
-      }
-    });
-    
-    $(this).on('mouseleave', function() {
-      const activeItem = $('.second li.active').first();
-      const itemWidth = activeItem.outerWidth();
-      const itemLeft = activeItem.position().left;
-      const containerLeft = listContainer.offset().left;
-      
-      trail.css({
-        width: itemWidth + 'px',
-        left: (containerLeft + itemLeft) + 'px',
-        opacity: 1
-      });
-    });
-  });
 }
 
 function changeBackgroundPattern(pattern) {
@@ -507,7 +480,7 @@ $(document).ready(function () {
         trail.css({
             position: 'absolute',
             bottom: '0',
-            left: listContainer.offset().left + 'px'
+            // left: listContainer.offset().left + 'px'
         });
         
         // Set initial position to first item

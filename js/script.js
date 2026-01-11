@@ -456,19 +456,20 @@ $(document).ready(function () {
             '<i class="bi bi-brightness-high-fill sun"></i>',
             '<i class="bi bi-moon-stars-fill moon"></i>'
         ]
-        let newIcon = isNight ? nighticon : dayicon;
-        let weatherIcon = isNight ? moon : sun;
+        let newIcon = !isNight ? nighticon : dayicon;
+        let weatherIcon = !isNight ? moon : sun;
         $this.html(newIcon);
         $('.weather').html(weatherIcon)
         $('body').toggleClass('night day');
         $('.weather').toggleClass('skyn skyd');
+        // $('body').toggleClass('chevron-bg diamond-bg');
     });
 
- if (isNight) {
-        $('body').removeClass('chevron-bg').addClass('diamond-bg');
-    } else {
-        $('body').removeClass('diamond-bg').addClass('chevron-bg');
-    }
+//  if (isNight) {
+        
+//     } else {
+//         $('body').removeClass('diamond-bg chevron-bg');
+//     }
      setTimeout(initializeTrail, 1000);
     
     function initializeTrail() {

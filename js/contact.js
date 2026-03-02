@@ -210,4 +210,118 @@ class CVDownloadHandler {
         
         const link = document.createElement('a');
         link.href = url;
-        link.download = 'Matthew_Aboyade_C
+        link.download = 'Matthew_Aboyade_CV.txt';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    }
+    
+    createCVContent() {
+        return `MATTHEW ABOYADE - CV
+========================
+
+CONTACT
+-------
+Email: matthew.aboyade@example.com
+Phone: +234 123 456 7890
+Location: Lagos, Nigeria
+
+SUMMARY
+-------
+Frontend Developer with expertise in building responsive web applications.
+Skilled in JavaScript, TypeScript, React, and modern CSS frameworks.
+
+EXPERIENCE
+----------
+Frontend Developer | 2022 - Present
+- Developed responsive web applications using React and TypeScript
+- Implemented UI/UX designs with attention to performance
+- Collaborated with cross-functional teams to deliver projects
+
+EDUCATION
+---------
+Bachelor's Degree in Computer Science
+University of Lagos | 2018 - 2022
+
+SKILLS
+------
+- JavaScript/TypeScript
+- React.js
+- HTML5/CSS3
+- Responsive Design
+- Git/GitHub
+- Problem Solving
+
+PROJECTS
+--------
+- No Monsters Game: Interactive JavaScript shooting game
+- Calculator App: Scientific calculator with advanced functions
+- Flipping Cards Game: Memory matching game
+- 3D Cube Animation: Pure CSS 3D animation
+
+LANGUAGES
+---------
+English (Fluent)
+Yoruba (Native)
+
+AVAILABILITY
+------------
+Open to remote opportunities and freelance projects
+        `;
+    }
+    
+    showDownloadNotification() {
+        // Create a temporary notification
+        const notification = document.createElement('div');
+        notification.className = 'download-notification';
+        notification.innerHTML = `
+            <i class="fa-solid fa-check-circle"></i>
+            <span>CV Downloaded Successfully!</span>
+        `;
+        
+        // Style the notification
+        Object.assign(notification.style, {
+            position: 'fixed',
+            bottom: '20px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            background: 'var(--primarycl)',
+            color: '#000',
+            padding: '1rem 2rem',
+            borderRadius: '8px',
+            boxShadow: '0 5px 20px var(--primaryclA)',
+            zIndex: '9999',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1rem',
+            animation: 'slideUp 0.3s ease'
+        });
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideDown 0.3s ease';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        }, 3000);
+    }
+}
+
+// Initialize contact functionality when document is ready
+$(document).ready(function() {
+    // Initialize Contact Form
+    new ContactFormHandler();
+    
+    // Initialize CV Download
+    new CVDownloadHandler();
+    
+    // Add smooth scroll for contact links
+    $('a[href="#contact"]').on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $('#contact').offset().top - 50
+        }, 500);
+    });
+});
